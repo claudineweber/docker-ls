@@ -18,6 +18,7 @@ docker-ls/
     ├── data                 # Logstash internal data and persistence (equivalent to teacher's "data2")
     ├── input                # Directory for input log files
     │   └── auth.log
+    ├── logs                 # Directory for Logstash log files
     ├── output               # Directory for Logstash output files
     └── pipeline             # Pipeline configurations (equivalent to teacher's "conf" folder)
         └── my-first-test

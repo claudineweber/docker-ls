@@ -7,5 +7,6 @@ services:
       - ./logstash/data:/usr/share/logstash/data
       - ./logstash/input:/usr/share/logstash/input
       - ./logstash/output:/usr/share/logstash/output
+      - ./logstash/logs:/usr/share/logstash/logs
     stdin_open: true
     tty: true
