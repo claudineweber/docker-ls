@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  logstash:
+    build: ./logstash
+    container_name: logstash
+    volumes:
+      - ./logstash/data:/usr/share/logstash/data
+      - ./logstash/input:/usr/share/logstash/input
+      - ./logstash/output:/usr/share/logstash/output
+    stdin_open: true
+    tty: true
