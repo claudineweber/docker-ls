@@ -25,22 +25,26 @@ docker-ls/
             └── logstash.conf
 ```
 
-### Explanation of Files:
+### Explanation of Files
 
 #### `docker-compose.yml`
+
 - Defines how the Docker containers should be built and run.
 - Mounts local directories (`data`, `input`, `output`) into the container for persistent data management.
 - Starts the Logstash container interactively using the provided Dockerfile configuration.
 
 #### `Dockerfile`
+
 - Builds a Docker image based on the official Logstash Docker image.
 - Copies pipeline configurations and the `logstash.yml` file into the container.
 - Sets up a persistent volume for Logstash data storage.
 
 #### `config/logstash.yml`
+
 - Contains global Logstash configurations, such as disabling Elasticsearch monitoring (`xpack.monitoring.enabled: false`).
 
 #### `pipeline/my-first-test/logstash.conf`
+
 - Defines the pipeline configurations (input, output, and optional filtering) to process log data according to the TP exercises.
 
 ## Create and Start the Docker Container
@@ -72,3 +76,9 @@ logstash -f /usr/share/logstash/pipeline/my-first-test/logstash.conf
 ### Important Note
 
 This Docker container and structure are designed to assist with exercise TP1, providing a starting point for pipeline testing and interaction. Further adjustments and configurations will be necessary to complete the entire TP.
+
+To prune the Container, the image and all related volumes because ou made changes and want these to take effect for sure use
+
+```bash
+docker stop logstash && docker rm logstash && docker rmi docker-ls_logstash && docker volume rm $(docker volume ls -q --filter name=docker-ls)
+```
